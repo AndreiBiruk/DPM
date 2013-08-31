@@ -19,6 +19,11 @@ public class MainController {
         return "home";
     }
 
+    @RequestMapping("login")
+    public String login() {
+        return "login";
+    }
+
     @RequestMapping("/registration")
     public String registration() {
         return "registration";

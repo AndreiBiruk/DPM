@@ -1,1 +1,1 @@
-<h1 class="text-center muted">Andrei Biruk and Oleg Diominov (c) 2013</h1>
+<p class="text-center muted">&copy Andrei Biruk and Oleg Diominov, 2013</p>

@@ -1,38 +1,65 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%>
 <%@ page contentType="text/html;charset=UTF-8" %>
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
+<nav class="navbar navbar-default">
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="<c:url value="/home"/>">
+                <i class = "icon icon-apple"></i>
+                <i class = "icon icon-android"></i>
+                <]:{)
+                <i class = "icon icon-windows"></i>
+                <i class = "icon icon-linux"></i>
+            </a>
         </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li class="dropdown-header">Nav header</li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <form class="navbar-form navbar-right">
-                <button type="submit" class="btn btn-success">Sign in</button>
-            </form>
-        </div><!--/.navbar-collapse -->
+        <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+            <li class = "btn-group">
+                <security:authorize  access="isAnonymous()">
+                    <a class = "btn btn-link" href="#">
+                        <i class="icon-book icon-large"></i>
+                        <spring:message code="signup"/>
+                    </a>
+                    <a class = "btn btn-link" href="<c:url value="/login"/>">
+                        <i class="icon-signin icon-large"></i>
+                        <spring:message code="signin"/>
+                    </a>
+                </security:authorize>
+            </li>
+            <li class = "btn-group">
+                <security:authorize  access="isAuthenticated()">
+                    <a class = "btn btn-link" href="#">
+                        <i class="icon-user icon-large"></i>
+                        <security:authentication property="principal.username"/>
+                    </a>
+                    <a class = "btn btn-link" href="<c:url value="/j_spring_security_logout"/>">
+                        <i class="icon-signout icon-large"></i>
+                        <spring:message code="signout"/>
+                    </a>
+                </security:authorize>
+            </li>
+            <li class="btn-group">
+                <a class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-gear icon-large"></i>
+                    <spring:message code="settings"/>
+                    <i class="icon-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-header"><spring:message code="language"/></li>
+                    <li><a href="?language=en">English</a></li>
+                    <li><a href="?language=ru">Русский</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header"><spring:message code="theme"/></li>
+                    <li><a href="?theme=light"><spring:message code="light"/></a></li>
+                    <li><a href="?theme=dark"><spring:message code="dark"/></a></li>
+                </ul>
+            </li>
+        </ul>
     </div>
-</div>
+</nav>
