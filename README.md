@@ -1,4 +1,4 @@
 DPM
 ===
 
-Cource project
+Course project

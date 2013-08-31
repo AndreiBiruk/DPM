@@ -1,0 +1,1 @@
+<h1 class="text-center muted">Andrei Biruk and Oleg Diominov (c) 2013</h1>
