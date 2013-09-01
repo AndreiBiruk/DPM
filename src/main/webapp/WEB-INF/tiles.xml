@@ -18,4 +18,10 @@
         <put-attribute name="title" value="signin" />
         <put-attribute name="body" value="/WEB-INF/jsp/login.jsp" />
     </definition>
+
+    <definition name="registration" extends="base.definition">
+        <put-attribute name="title" value="registration.registration" />
+        <put-attribute name="body" value="/WEB-INF/jsp/registration.jsp" />
+    </definition>
+
 </tiles-definitions>

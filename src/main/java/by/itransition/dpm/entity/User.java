@@ -13,42 +13,27 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name="User")
+@Table(name="Users")
 public class User {
 
     @Id
     @GeneratedValue(generator="increment")
     @GenericGenerator(name="increment", strategy = "increment")
-    @Column(name="ID")
-    private Integer id;
+    @Column(name="idUser")
+    private Integer idUser;
 
-    @Column(name = "LOGIN")
-    private String login;
+    @Column(name = "username")
+    private String username;
 
-    @Column(name = "PASSWORD")
+    @Column(name = "password")
     private String password;
 
-    @Column(name = "ENABLED")
+    @Column(name = "enabled")
     private boolean enabled;
 
-    @Column(name = "MAIL")
-    private String mail;
+    @Column(name = "email")
+    private String email;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
 
     public String getPassword() {
         return password;
@@ -66,11 +51,27 @@ public class User {
         this.enabled = enabled;
     }
 
-    public String getMail() {
-        return mail;
+    public Integer getIdUser() {
+        return idUser;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setIdUser(Integer idUser) {
+        this.idUser = idUser;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

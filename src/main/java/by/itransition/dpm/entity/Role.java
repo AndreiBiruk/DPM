@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name = "role")
+@Table(name = "Roles")
 public class Role {
 
     public static final String ROLE_ADMIN = "ROLE_ADMIN";
@@ -24,7 +24,7 @@ public class Role {
     @Column(name="role")
     private String role;
 
-    @Column(name="User_idUser")
+    @Column(name="idUser")
     private Integer idUser;
 
     public Integer getIdRole(){

@@ -16,10 +16,6 @@ public class RegistrationValidator {
     @Autowired
     private UserDao userDao;
 
-    //public RegistrationValidator(){
-    //    this.userDao = new UserDaoImpl();
-    //}
-
     private User user;
     private String confirmPassword;
 
@@ -68,11 +64,11 @@ public class RegistrationValidator {
     }
 
     public boolean isInvalidUser(){
-        return !(user instanceof User)||user.getLogin()==null||user.getPassword()==null||user.getMail()==null;
+        return !(user instanceof User)||user.getUsername()==null||user.getPassword()==null||user.getEmail()==null;
     }
 
     public boolean isLoginEmpty(){
-        return user.getLogin().length() == 0;
+        return user.getUsername().length() == 0;
     }
 
     public boolean isPasswordEmpty(){
@@ -85,14 +81,14 @@ public class RegistrationValidator {
 
     @Transactional
     public boolean isUserExist(){
-        return userDao.getUserByLogin(user.getLogin()) != null;
+        return userDao.getUserByLogin(user.getUsername()) != null;
     }
 
     public boolean isMailValid(){
-        return (user.getMail().indexOf('@') >= 0)
-                && (user.getMail().indexOf('@') == user.getMail().lastIndexOf('@'))
-                && (user.getMail().indexOf('@') < user.getMail().lastIndexOf('.'))
-                && (user.getMail().length() >= 5)
+        return (user.getEmail().indexOf('@') >= 0)
+                && (user.getEmail().indexOf('@') == user.getEmail().lastIndexOf('@'))
+                && (user.getEmail().indexOf('@') < user.getEmail().lastIndexOf('.'))
+                && (user.getEmail().length() >= 5)
                 ;
 
     }

@@ -6,6 +6,8 @@
     <session-factory>
         <property name="show_sql">true</property>
         <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="connection.pool_size">10</property>
              
         <mapping class="by.itransition.dpm.entity.User"/>
         <mapping class="by.itransition.dpm.entity.Role"/>

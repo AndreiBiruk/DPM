@@ -25,9 +25,9 @@ public class UserDaoImpl implements UserDao{
     }
 
     @Override
-    public User getUserByLogin(String login) {
+    public User getUserByLogin(String username) {
         List<?> userList = sessionFactory.getCurrentSession().createCriteria(User.class)
-                .add(Restrictions.like("LOGIN", login))
+                .add(Restrictions.like("username", username))
                 .list();
         return userList.size() > 0 ? (User)userList.get(0) : null;
 

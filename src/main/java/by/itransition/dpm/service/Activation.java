@@ -19,7 +19,7 @@ public class Activation {
 
     public static String generateActivationCode(User user){
         StringBuffer code = new StringBuffer();
-        for(char c : user.getLogin().toLowerCase().toCharArray() ){
+        for(char c : user.getUsername().toLowerCase().toCharArray() ){
             code.append((int)c - 87);
         }
         return new String(code);

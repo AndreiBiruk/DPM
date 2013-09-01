@@ -59,9 +59,9 @@ public class UserRegistration {
 
     public void sendMessage(String link) {
         message.setFrom("MusicUploader");
-        message.setTo(user.getMail());
+        message.setTo(user.getEmail());
         message.setSubject("Activation on MusicUploader");
-        message.setText(Main.ACTIVATION_MESSAGE_1 + user.getLogin() + Main.ACTIVATION_MESSAGE_2 + user.getPassword() + Main.ACTIVATION_MESSAGE_3 + link + Main.ACTIVATION_MESSAGE_4);
+        message.setText(Main.ACTIVATION_MESSAGE_1 + user.getUsername() + Main.ACTIVATION_MESSAGE_2 + user.getPassword() + Main.ACTIVATION_MESSAGE_3 + link + Main.ACTIVATION_MESSAGE_4);
         mailSender.send(message);
     }
 
@@ -72,10 +72,10 @@ public class UserRegistration {
 
     @Transactional
     public void addRole() {
-        User user = userDao.getUserByLogin(this.user.getLogin());
+        User user = userDao.getUserByLogin(this.user.getUsername());
         Role role = new Role();
         role.setRole(Role.ROLE_USER);
-        role.setIdUser(user.getId());
+        role.setIdUser(user.getIdUser());
         roleDao.addRole(role);
     }
 

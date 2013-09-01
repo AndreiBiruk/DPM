@@ -24,7 +24,7 @@ public class MainController {
         return "login";
     }
 
-    @RequestMapping("/registration")
+    @RequestMapping("registration")
     public String registration() {
         return "registration";
     }

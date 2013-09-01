@@ -33,12 +33,15 @@
                 <c:if test="${param.invalidMail == true}" >
                     <spring:message code="registration.invalidMail" text="Invalid e-mail." /><br>
                 </c:if>
+                <c:if test="${param.invalidUserObject == true}" >
+                    <spring:message code="registration.unknownError" text="Invalid e-mail." /><br>
+                </c:if>
             </div>
         </c:if>
         <div class="control-group">
-            <label class="control-label" for="username"><spring:message code="registration.login" text="Login" /></label>
+            <label class="control-label" for="login"><spring:message code="registration.login" text="Login" /></label>
             <div class="controls">
-                <input type="text" id="username" name="username" placeholder="<spring:message code="registration.login" text="Login" />" pattern="^[a-zA-Z0-9-.]+">
+                <input type="text" id="login" name="login" placeholder="<spring:message code="registration.login" text="Login" />" pattern="^[a-zA-Z0-9-.]+">
             </div>
         </div>
         <div class="control-group">

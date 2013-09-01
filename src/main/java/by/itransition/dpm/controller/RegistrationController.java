@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import by.itransition.dpm.dao.UserDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,13 +43,21 @@ public class RegistrationController {
     @RequestMapping(value = "addUser")
     public String registration(@ModelAttribute("user")User user, String confirmPassword, Model model, HttpServletRequest request){
         model.addAttribute("path", request.getRequestURI());
-        validator.setUser(user);
-        validator.setConfirmPassword(confirmPassword);
 
-        List<String> errorList = validator.getErrorList();
+
+        //validator.setUser(user);
+        //validator.setConfirmPassword(confirmPassword);
+
+        //List<String> errorList = validator.getErrorList();
+        List<String> errorList = java.util.Collections.emptyList();
+
         if (errorList.isEmpty()){
-            registration.setUser(user);
-            registration.registrate();
+            by.itransition.dpm.dao.UserDao dao = new UserDaoImpl();
+            user.setIdUser(10);
+            dao.addUser(user);
+
+            //registration.setUser(user);
+            //registration.registrate();
         }
         return parseErrors(errorList);
     }
