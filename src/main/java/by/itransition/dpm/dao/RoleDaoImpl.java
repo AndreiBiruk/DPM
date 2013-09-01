@@ -15,16 +15,19 @@ public class RoleDaoImpl implements RoleDao {
 
     @Override
     public void addRole(Role role) {
+        sessionFactory.getCurrentSession().beginTransaction();
         sessionFactory.getCurrentSession().save(role);
     }
 
     @Override
     public void deleteRole(Role role) {
+        sessionFactory.getCurrentSession().beginTransaction();
         sessionFactory.getCurrentSession().delete(role);
     }
 
     @Override
     public List<Role> getUserIdList(){
+        sessionFactory.getCurrentSession().beginTransaction();
         return (List<Role>) sessionFactory.getCurrentSession()
                 .createCriteria(Role.class)
                 .add(Restrictions.like("role", "ROLE_USER"))

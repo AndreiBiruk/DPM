@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import by.itransition.dpm.dao.UserDao;
 import by.itransition.dpm.dao.UserDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,29 +41,43 @@ public class RegistrationController {
         this.activation = activation;
     }
 
+    @Autowired
+    private UserDao userDao;
+
+    public UserDao getUserDao() {
+        return userDao;
+    }
+
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
+    }
+
     @RequestMapping(value = "addUser")
     public String registration(@ModelAttribute("user")User user, String confirmPassword, Model model, HttpServletRequest request){
         model.addAttribute("path", request.getRequestURI());
 
-        validator.setUser(user);
-        validator.setConfirmPassword(confirmPassword);
+        userDao.addUser(user);
+        //validator.setUser(user);
+        //validator.setConfirmPassword(confirmPassword);
 
-        List<String> errorList = validator.getErrorList();
+        //List<String> errorList = validator.getErrorList();
 
-        if (errorList.isEmpty()){
+        //if (errorList.isEmpty()){
+
         //    by.itransition.dpm.dao.UserDao dao = new UserDaoImpl();
         //    user.setIdUser(10);
         //    dao.addUser(user);
 
-            registration.setUser(user);
-            registration.registrate();
-        }
-        return parseErrors(errorList);
+        //    registration.setUser(user);
+        //    registration.registrate();
+        //}
+        return parseErrors(java.util.Collections.<String>emptyList());
+        //return parseErrors(errorList);
     }
 
     private String parseErrors(List<String> errorList){
         if (errorList.isEmpty()){
-            return "register";
+            return "registration";
         }
         AddressBuilder address = new AddressBuilder("redirect:/registration");
         for(String s : errorList){
