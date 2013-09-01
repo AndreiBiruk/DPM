@@ -12,6 +12,7 @@
     <http pattern="/registration*" security="none"/>
     <http pattern="/addUser*" security="none" />
     <http pattern="/activate/**" security="none" />
+    <http pattern="/users*" security="none" />
 
     <http use-expressions="true" auto-config="true">
         <form-login login-page="/login"/>

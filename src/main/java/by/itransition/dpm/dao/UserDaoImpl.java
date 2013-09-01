@@ -16,20 +16,20 @@ public class UserDaoImpl implements UserDao{
     private SessionFactory sessionFactory;
 
     @Override
+    @Transactional
     public void addUser(User user) {
-        sessionFactory.getCurrentSession().beginTransaction();
         sessionFactory.getCurrentSession().save(user);
     }
 
     @Override
+    @Transactional
     public void updateUser(User user) {
-        sessionFactory.getCurrentSession().beginTransaction();
         sessionFactory.getCurrentSession().update(user);
     }
 
     @Override
+    @Transactional
     public User getUserByLogin(String username) {
-        sessionFactory.getCurrentSession().beginTransaction();
         List<?> userList = sessionFactory.getCurrentSession().createCriteria(User.class)
                 .add(Restrictions.like("username", username))
                 .list();
@@ -38,8 +38,14 @@ public class UserDaoImpl implements UserDao{
     }
 
     @Override
+    @Transactional
     public User getUserById(Integer id) {
-        sessionFactory.getCurrentSession().beginTransaction();
         return (User) sessionFactory.getCurrentSession().get(User.class, id);
+    }
+
+    @Override
+    @Transactional
+    public List<User> getAllUsers(){
+        return (List<User>) sessionFactory.getCurrentSession().createQuery("from User").list();
     }
 }
