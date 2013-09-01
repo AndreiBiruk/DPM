@@ -39,9 +39,9 @@
             </div>
         </c:if>
         <div class="control-group">
-            <label class="control-label" for="login"><spring:message code="registration.login" text="Login" /></label>
+            <label class="control-label" for="username"><spring:message code="registration.username" text="Login" /></label>
             <div class="controls">
-                <input type="text" id="login" name="login" placeholder="<spring:message code="registration.login" text="Login" />" pattern="^[a-zA-Z0-9-.]+">
+                <input type="text" id="username" name="username" placeholder="<spring:message code="registration.username" text="Login" />" pattern="^[a-zA-Z0-9-.]+">
             </div>
         </div>
         <div class="control-group">
@@ -57,9 +57,9 @@
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="mail"><spring:message code="registration.email" text="E-Mail" /></label>
+            <label class="control-label" for="email"><spring:message code="registration.email" text="E-Mail" /></label>
             <div class="controls">
-                <input type="text" id="mail" name="mail" placeholder="<spring:message code="registration.email" text="E-Mail" />">
+                <input type="text" id="email" name="email" placeholder="<spring:message code="registration.email" text="E-Mail" />">
             </div>
         </div>
         <div class="control-group">

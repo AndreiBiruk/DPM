@@ -44,20 +44,18 @@ public class RegistrationController {
     public String registration(@ModelAttribute("user")User user, String confirmPassword, Model model, HttpServletRequest request){
         model.addAttribute("path", request.getRequestURI());
 
+        validator.setUser(user);
+        validator.setConfirmPassword(confirmPassword);
 
-        //validator.setUser(user);
-        //validator.setConfirmPassword(confirmPassword);
-
-        //List<String> errorList = validator.getErrorList();
-        List<String> errorList = java.util.Collections.emptyList();
+        List<String> errorList = validator.getErrorList();
 
         if (errorList.isEmpty()){
-            by.itransition.dpm.dao.UserDao dao = new UserDaoImpl();
-            user.setIdUser(10);
-            dao.addUser(user);
+        //    by.itransition.dpm.dao.UserDao dao = new UserDaoImpl();
+        //    user.setIdUser(10);
+        //    dao.addUser(user);
 
-            //registration.setUser(user);
-            //registration.registrate();
+            registration.setUser(user);
+            registration.registrate();
         }
         return parseErrors(errorList);
     }

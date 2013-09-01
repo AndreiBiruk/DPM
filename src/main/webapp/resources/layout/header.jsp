@@ -22,7 +22,7 @@
         <ul class="nav navbar-nav navbar-right">
             <li class = "btn-group">
                 <security:authorize  access="isAnonymous()">
-                    <a class = "btn btn-link" href="#">
+                    <a class = "btn btn-link" href="<c:url value="/registration"/>">
                         <i class="icon-book icon-large"></i>
                         <spring:message code="signup"/>
                     </a>
