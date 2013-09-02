@@ -19,6 +19,15 @@
         <put-attribute name="body" value="/WEB-INF/jsp/users.jsp" />
     </definition>
 
+    <definition name="user" extends="base.definition">
+        <put-attribute name="title" value="header.user.profile" />
+        <put-attribute name="body" value="/WEB-INF/jsp/user.jsp" />
+    </definition>
+
+    <definition name="denied" extends="base.definition">
+        <put-attribute name="title" value="access.denied" />
+        <put-attribute name="body" value="/WEB-INF/jsp/denied.jsp" />
+    </definition>
 
     <definition name="login" extends="base.definition">
         <put-attribute name="title" value="signin" />
