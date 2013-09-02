@@ -33,7 +33,7 @@
                 </security:authorize>
             </li>
             <li class = "btn-group">
-                <security:authorize  access="">
+                <security:authorize  access="isAuthenticated()">
                     <a class = "btn btn-link" href="<c:url value="/user"/>">
                         <i class="icon-user icon-large"></i>
                         <security:authentication property="principal.username"/>
