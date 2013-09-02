@@ -7,13 +7,19 @@
 
 <div class="span6 offset3">
 
-    <form class="form-horizontal" id="registration" action="addBook"
+    <form class="form-horizontal" id="createBook" action="addBook"
           method="POST"  >
 
         <div class="control-group">
-            <label class="control-label" for="username"><spring:message code="book.name"/></label>
+            <label class="control-label" for="name"><spring:message code="book.name"/></label>
             <div class="controls">
-                <input type="text" id="username" name="username" placeholder="<spring:message code="book.name"/>">
+                <input type="text" id="name" name="name" placeholder="<spring:message code="book.name"/>">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="description"><spring:message code="book.name"/></label>
+            <div class="controls">
+                <input type="text" id="description" name="description" placeholder="<spring:message code="book.description"/>">
             </div>
         </div>
         <div class="control-group">
