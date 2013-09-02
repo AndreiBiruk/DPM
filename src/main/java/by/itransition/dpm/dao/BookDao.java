@@ -10,6 +10,7 @@ public interface BookDao {
     public void saveBook(Book book);
     public void updateBook(Book book);
     public void deleteBook(Book book);
+    public void deleteBookById(Integer id);
     public List <Book> getAllBooks();
     public List <Book> getAllUserBooks(User user);
 }

@@ -42,6 +42,14 @@ public class BookDaoImpl implements BookDao{
 
     @Override
     @Transactional
+    public void deleteBookById(Integer id) {
+        Book book = getBookById(id);
+        book.getUser().getBooks().remove(book);
+        deleteBook(book);
+    }
+
+    @Override
+    @Transactional
     public List<Book> getAllBooks() {
         return (List<Book>) sessionFactory.getCurrentSession().createQuery("from Book").list();
     }

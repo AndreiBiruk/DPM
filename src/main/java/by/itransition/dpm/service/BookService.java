@@ -24,14 +24,6 @@ public class BookService {
     @Autowired
     private UserService userService;
 
-    public void setBookDao(BookDao bookDao) {
-        this.bookDao = bookDao;
-    }
-
-    public void setUserDao(UserDao userDao) {
-        this.userDao = userDao;
-    }
-
     @Transactional
     public void addBook(Book book){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -45,5 +37,10 @@ public class BookService {
     @Transactional
     public List<Book> getUserBooks(User user) {
         return user.getBooks();
+    }
+
+    @Transactional
+    public void deleteBookById(Integer id) {
+        bookDao.deleteBookById(id);
     }
 }
