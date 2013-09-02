@@ -31,6 +31,17 @@ public class User {
     @Column(name = "role")
     private Integer role;
 
+    @OneToMany
+    List<Book> books;
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
+    }
+
     public Integer getRole() {
         return role;
     }

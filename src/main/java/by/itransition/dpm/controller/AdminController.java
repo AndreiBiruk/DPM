@@ -15,9 +15,8 @@ import java.util.List;
 
 @Controller
 public class AdminController {
-	private static final int USERS_ON_PAGE = 8;
-	
-	@Autowired
+
+    @Autowired
 	private AdminService adminService;
 	
 	public void setAdminService(AdminService adminService){
