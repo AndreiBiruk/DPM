@@ -50,4 +50,9 @@
         <put-attribute name="body" value="/WEB-INF/jsp/createBook.jsp" />
     </definition>
 
+    <definition name="book" extends="base.definition">
+        <put-attribute name="title" value="book" />
+        <put-attribute name="body" value="/WEB-INF/jsp/book.jsp" />
+    </definition>
+
 </tiles-definitions>

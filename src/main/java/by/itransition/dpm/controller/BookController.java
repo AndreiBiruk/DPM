@@ -30,7 +30,7 @@ public class BookController {
     }
 
     @RequestMapping(value = "addBook")
-    public String addBook(@ModelAttribute("book")Book book, Model model, HttpServletRequest request){
+    public String registration(@ModelAttribute("book")Book book, Model model, HttpServletRequest request){
         bookService.addBook(book);
         return "redirect:/user";
     }

@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class Book {
@@ -21,7 +22,7 @@ public class Book {
     private String description;
 
     @OneToMany(mappedBy = "book", fetch=FetchType.LAZY)
-    private Collection<Chapter> chapters;
+    private List<Chapter> chapters;
 
     @ManyToOne
     private User user;
@@ -58,11 +59,11 @@ public class Book {
         this.description = description;
     }
 
-    public Collection<Chapter> getChapters() {
+    public List<Chapter> getChapters() {
         return chapters;
     }
 
-    public void setChapters(Collection<Chapter> chapters) {
+    public void setChapters(List<Chapter> chapters) {
         this.chapters = chapters;
     }
 }

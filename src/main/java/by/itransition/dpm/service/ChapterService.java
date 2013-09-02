@@ -1,8 +1,10 @@
 package by.itransition.dpm.service;
 
 import by.itransition.dpm.dao.BookDao;
+import by.itransition.dpm.dao.ChapterDao;
 import by.itransition.dpm.dao.UserDao;
 import by.itransition.dpm.entity.Book;
+import by.itransition.dpm.entity.Chapter;
 import by.itransition.dpm.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -13,42 +15,31 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class BookService {
+public class ChapterService {
 
     @Autowired
     private BookDao bookDao;
 
     @Autowired
-    private UserDao userDao;
-
-    @Autowired
-    private UserService userService;
+    private ChapterDao chapterDao;
 
     public void setBookDao(BookDao bookDao) {
         this.bookDao = bookDao;
     }
 
-    public void setUserDao(UserDao userDao) {
-        this.userDao = userDao;
-    }
-
     @Transactional
-    public void addBook(Book book){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String name = authentication.getName();
-        User user = userDao.getUserByLogin(name);
-        book.setUser(user);
+    public void addChapter(Book book, Chapter chapter){
+        book.getChapters().add(chapter);
         bookDao.saveBook(book);
-        userService.addBook(user, book);
     }
 
     @Transactional
-    public List<Book> getUserBooks(User user) {
-        return user.getBooks();
+    public List<Chapter> getBookChapters(Book book) {
+        return book.getChapters();
     }
 
     @Transactional
-    public void deleteBookById(Integer id) {
-        bookDao.deleteBookById(id);
+    public Chapter getChapterById(Integer id){
+        return chapterDao.getChapterById(id);
     }
 }
