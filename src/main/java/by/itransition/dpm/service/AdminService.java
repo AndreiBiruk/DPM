@@ -19,8 +19,14 @@ public class AdminService {
 	}
 	
 	@Transactional
-	public List<User> getRoleUserList(){
+	public List<User> getAllUsers(){
 		return userDao.getAllUsers();
 	}
+
+    @Transactional
+    public void deleteUserById(Integer id){
+        userDao.deleteUserById(id);
+    }
+
 }
 

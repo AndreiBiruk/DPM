@@ -30,7 +30,7 @@ public class AuthorizationService implements UserDetailsService {
         try {
             by.itransition.dpm.entity.User domainUser = userDao.getUserByLogin(username);
 
-            boolean enabled = true;
+            boolean enabled = domainUser.isEnabled();
             boolean accountNonExpired = true;
             boolean credentialsNonExpired = true;
             boolean accountNonLocked = true;

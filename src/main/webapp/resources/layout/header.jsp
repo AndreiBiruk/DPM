@@ -34,7 +34,7 @@
             </li>
             <li class = "btn-group">
                 <security:authorize  access="isAuthenticated()">
-                    <a class = "btn btn-link" href="#">
+                    <a class = "btn btn-link" href="/users">
                         <i class="icon-user icon-large"></i>
                         <security:authentication property="principal.username"/>
                     </a>

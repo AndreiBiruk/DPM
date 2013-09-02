@@ -18,11 +18,12 @@ public class Activation {
     }
 
     public static String generateActivationCode(User user){
-        StringBuffer code = new StringBuffer();
-        for(char c : user.getUsername().toLowerCase().toCharArray() ){
-            code.append((int)c - 48);
-        }
-        return new String(code);
+        //StringBuffer code = new StringBuffer();
+        //for(char c : user.getUsername().toLowerCase().toCharArray() ){
+        //    code.append((int)c - 48);
+        //}
+        //return new String(code);
+        return user.getIdUser().toString();
     }
 
     /**
@@ -30,17 +31,18 @@ public class Activation {
      * @param code
      * @return username
      */
-    public static String decodeActivationCode(String code){
-        StringBuffer username = new StringBuffer();
-        for(int i=0; i < code.length(); i+=2){
-            username.append((char)(Integer.valueOf(code.substring(i, i+2)).intValue()+48));
-        }
-        return new String(username);
-    }
+    //public static String decodeActivationCode(String code){
+        //StringBuffer username = new StringBuffer();
+        //for(int i=0; i < code.length(); i+=2){
+        //    username.append((char)(Integer.valueOf(code.substring(i, i+2)).intValue()+48));
+        //}
+        //return new String(username);
+    //}
 
     @Transactional
     public boolean activateUserByCode(String code){
-        return activateUserByLogin(decodeActivationCode(code));
+        //return activateUserByLogin(decodeActivationCode(code));
+        return activateUserById(Integer.parseInt(code));
     }
 
     @Transactional
