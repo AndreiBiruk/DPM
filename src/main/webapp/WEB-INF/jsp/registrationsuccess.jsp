@@ -5,6 +5,6 @@
     <spring:message code="registration.registration" text="Registration" />
 </h1>
 
-<div class="alert alert-info">
+<div class="alert alert-success">
     <spring:message code="registration.success"/>
 </div>
