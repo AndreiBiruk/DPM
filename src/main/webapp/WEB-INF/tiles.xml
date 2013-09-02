@@ -30,4 +30,9 @@
         <put-attribute name="body" value="/WEB-INF/jsp/registration.jsp" />
     </definition>
 
+    <definition name="registrationsuccess" extends="base.definition">
+        <put-attribute name="title" value="registration.registration" />
+        <put-attribute name="body" value="/WEB-INF/jsp/registrationsuccess.jsp" />
+    </definition>
+
 </tiles-definitions>

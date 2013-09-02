@@ -20,7 +20,7 @@ public class Activation {
     public static String generateActivationCode(User user){
         StringBuffer code = new StringBuffer();
         for(char c : user.getUsername().toLowerCase().toCharArray() ){
-            code.append((int)c - 87);
+            code.append((int)c - 48);
         }
         return new String(code);
     }
@@ -33,7 +33,7 @@ public class Activation {
     public static String decodeActivationCode(String code){
         StringBuffer username = new StringBuffer();
         for(int i=0; i < code.length(); i+=2){
-            username.append((char)(Integer.valueOf(code.substring(i, i+2)).intValue()+87));
+            username.append((char)(Integer.valueOf(code.substring(i, i+2)).intValue()+48));
         }
         return new String(username);
     }

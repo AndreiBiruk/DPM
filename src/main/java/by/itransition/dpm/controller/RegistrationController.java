@@ -70,7 +70,7 @@ public class RegistrationController {
 
     private String parseErrors(List<String> errorList){
         if (errorList.isEmpty()){
-            return "registration";
+            return "registrationsuccess";
         }
         AddressBuilder address = new AddressBuilder("redirect:/registration");
         for(String s : errorList){

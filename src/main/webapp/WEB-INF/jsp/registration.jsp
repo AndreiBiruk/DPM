@@ -7,10 +7,6 @@
 
 <div class="span6 offset3">
 
-    <ul class="nav nav-tabs">
-        <li><a href="login"><spring:message code="login.signIn" text="Sign in" /></a></li>
-        <li class="active"><a href=""><spring:message code="registration.registration" text="Registration" /></a></li>
-    </ul>
     <form class="form-horizontal" id="registration" action="addUser"
           method="POST"  >
         <div class="alert alert-info">
