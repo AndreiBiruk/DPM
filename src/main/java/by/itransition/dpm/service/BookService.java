@@ -51,4 +51,9 @@ public class BookService {
     public void deleteBookById(Integer id) {
         bookDao.deleteBookById(id);
     }
+
+    @Transactional
+    public Book getBookById (Integer id){
+        return bookDao.getBookById(id);
+    }
 }

@@ -2,6 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 ${name}
+
 <c:if test="${not empty chapters}">
     <table class="table table-bordered table-striped">
         <tr>
@@ -16,3 +17,7 @@ ${name}
         </c:forEach>
     </table>
 </c:if>
+
+<a class = "btn btn-success" href = "<c:url value = "/createChapter"/>">
+    <spring:message code="chapter.create"/>
+</a>

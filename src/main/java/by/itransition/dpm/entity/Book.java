@@ -1,6 +1,8 @@
 package by.itransition.dpm.entity;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -21,7 +23,8 @@ public class Book {
     @Column(name = "DESCRIPTION")
     private String description;
 
-    @OneToMany(mappedBy = "book", fetch=FetchType.LAZY)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @OneToMany(mappedBy = "book")
     private List<Chapter> chapters;
 
     @ManyToOne

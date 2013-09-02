@@ -23,14 +23,26 @@ public class ChapterService {
     @Autowired
     private ChapterDao chapterDao;
 
+    @Autowired
+    private BookService bookService;
+
+    public void setChapterDao(ChapterDao chapterDao) {
+        this.chapterDao = chapterDao;
+    }
+
+    public void setBookService(BookService bookService) {
+        this.bookService = bookService;
+    }
+
     public void setBookDao(BookDao bookDao) {
         this.bookDao = bookDao;
     }
 
     @Transactional
-    public void addChapter(Book book, Chapter chapter){
+    public void addChapter(Integer idBook, Chapter chapter){
+        Book book = bookService.getBookById(idBook);
         book.getChapters().add(chapter);
-        bookDao.saveBook(book);
+        bookDao.updateBook(book);
     }
 
     @Transactional

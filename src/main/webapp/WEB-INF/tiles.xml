@@ -51,8 +51,14 @@
     </definition>
 
     <definition name="book" extends="base.definition">
-        <put-attribute name="title" value="book" />
+        <put-attribute name="title" value="book.create" />
         <put-attribute name="body" value="/WEB-INF/jsp/book.jsp" />
     </definition>
+
+    <definition name="createChapter" extends="base.definition">
+        <put-attribute name="title" value="book.create" />
+        <put-attribute name="body" value="/WEB-INF/jsp/createChapter.jsp" />
+    </definition>
+
 
 </tiles-definitions>

@@ -17,7 +17,7 @@ public class Chapter {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "content")
+    @Column(name = "content", columnDefinition = "TEXT")
     private String content;
 
     @ManyToOne
