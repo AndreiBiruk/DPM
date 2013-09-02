@@ -43,6 +43,11 @@ public class BookService {
     }
 
     @Transactional
+    public List<Book> getAllBooks() {
+        return bookDao.getAllBooks();
+    }
+
+    @Transactional
     public List<Book> getUserBooks(User user) {
         return user.getBooks();
     }

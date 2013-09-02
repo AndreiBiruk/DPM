@@ -35,20 +35,8 @@ public class BookController {
         return "createBook";
     }
 
-    @RequestMapping("createChapter")
-    String createChapter (){
-        return "createChapter";
-    }
-
-
     @RequestMapping(value = "addBook")
     public String registration(@ModelAttribute("book")Book book, Model model, HttpServletRequest request){
-        bookService.addBook(book);
-        return "redirect:/user";
-    }
-
-    @RequestMapping(value = "addChapter")
-    public String addChapter(@ModelAttribute("book")Book book, Model model, HttpServletRequest request){
         bookService.addBook(book);
         return "redirect:/user";
     }
@@ -59,14 +47,4 @@ public class BookController {
         return "redirect:/user";
     }
 
-
-
-    @RequestMapping("/book/{bookid}")
-    public String book(Model model, @PathVariable Integer bookid) {
-        Book book = bookService.getBookById(bookid);
-        model.addAttribute("name", book.getName());
-        model.addAttribute("chapters", book.getChapters());
-        //model.addAttribute("books", bookService.getUserBooks(user));
-        return "book";
-    }
 }

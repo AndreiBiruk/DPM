@@ -11,9 +11,9 @@
           method="POST"  >
 
         <div class="control-group">
-            <label class="control-label" for="name"><spring:message code="book.name"/></label>
+            <label class="control-label" for="name"><spring:message code="book.chapter"/></label>
             <div class="controls">
-                <input type="text" id="name" name="name" placeholder="<spring:message code="book.name"/>">
+                <input type="text" id="name" name="name" placeholder="<spring:message code="book.chapter"/>">
             </div>
         </div>
         <div class="control-group">

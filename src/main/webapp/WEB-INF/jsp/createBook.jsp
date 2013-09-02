@@ -2,7 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <h1 align="center">
-    <spring:message code="registration.registration" text="Registration" />
+    <spring:message code="book.create"/>
 </h1>
 
 <div class="span6 offset3">
@@ -17,9 +17,9 @@
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="description"><spring:message code="book.name"/></label>
+            <label class="control-label" for="description"><spring:message code="book.description"/></label>
             <div class="controls">
-                <input type="text" id="description" name="description" placeholder="<spring:message code="book.description"/>">
+                <textarea class = "form-control" rows = "5" type="text" id="description" name="description" placeholder="<spring:message code="book.description"/>"></textarea>
             </div>
         </div>
         <div class="control-group">
