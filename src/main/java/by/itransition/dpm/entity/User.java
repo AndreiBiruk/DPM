@@ -2,18 +2,12 @@ package by.itransition.dpm.entity;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name="users")
+@Table(name="user")
 public class User {
 
     @Id
@@ -34,6 +28,16 @@ public class User {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "role")
+    private Integer role;
+
+    public Integer getRole() {
+        return role;
+    }
+
+    public void setRole(Integer role) {
+        this.role = role;
+    }
 
     public String getPassword() {
         return password;

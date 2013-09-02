@@ -1,11 +1,7 @@
 package by.itransition.dpm.service;
 
 import by.itransition.dpm.Main;
-import by.itransition.dpm.dao.RoleDao;
-import by.itransition.dpm.dao.RoleDaoImpl;
 import by.itransition.dpm.dao.UserDao;
-import by.itransition.dpm.dao.UserDaoImpl;
-import by.itransition.dpm.entity.Role;
 import by.itransition.dpm.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSender;
@@ -25,9 +21,6 @@ public class UserRegistration {
     @Autowired
     private UserDao userDao;
 
-    @Autowired
-    private RoleDao roleDao;
-
     private User user;
 
     public void setMailSender(MailSender mailSender) {
@@ -42,18 +35,14 @@ public class UserRegistration {
         this.userDao = userDao;
     }
 
-    public void setRoleDao(RoleDao roleDao){
-        this.roleDao = roleDao;
-    }
-
     public void setUser(User user){
         this.user = user;
     }
 
     @Transactional
     public void registrate(){
+        user.setRole(2);
         addUser();
-        addRole();
         sendMessage(generateLink());
     }
 
@@ -68,15 +57,6 @@ public class UserRegistration {
     @Transactional
     public void addUser() {
         userDao.addUser(user);
-    }
-
-    @Transactional
-    public void addRole() {
-        User user = userDao.getUserByLogin(this.user.getUsername());
-        Role role = new Role();
-        role.setRole(Role.ROLE_USER);
-        role.setIdUser(user.getIdUser());
-        roleDao.addRole(role);
     }
 
     private String generateLink(){

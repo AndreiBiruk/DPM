@@ -1,3 +1,4 @@
+/*
 package by.itransition.dpm.dao;
 
 import java.util.List;
@@ -8,4 +9,4 @@ public interface RoleDao {
     public void addRole(Role role);
     public void deleteRole(Role role);
     public List<Role> getUserIdList();
-}
+}*/

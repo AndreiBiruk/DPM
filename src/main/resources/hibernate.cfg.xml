@@ -7,6 +7,5 @@
 	<session-factory>
         <property name="hbm2ddl.auto">update</property>
         <mapping class="by.itransition.dpm.entity.User" />
-        <mapping class="by.itransition.dpm.entity.Role" />
     </session-factory>
 </hibernate-configuration>

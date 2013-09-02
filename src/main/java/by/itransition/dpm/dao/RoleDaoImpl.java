@@ -1,3 +1,4 @@
+/*
 package by.itransition.dpm.dao;
 
 import java.util.List;
@@ -37,4 +38,4 @@ public class RoleDaoImpl implements RoleDao {
                 .add(Restrictions.like("role", "ROLE_USER"))
                 .list();
     }
-}
+}*/

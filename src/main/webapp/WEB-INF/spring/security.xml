@@ -12,23 +12,20 @@
     <http pattern="/registration*" security="none"/>
     <http pattern="/addUser*" security="none" />
     <http pattern="/activate/**" security="none" />
-    <http pattern="/users*" security="none" />
 
     <http use-expressions="true" auto-config="true">
         <form-login login-page="/login"/>
         <intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/users" access="hasRole('ROLE_ADMIN')" />
         <remember-me key="cBg8A7E5Ak7eZLdF5e6y0xF8Kzevy2Xwh074hG8Ez7m"/>
     </http>
-    
+
+    <beans:bean id="authorizationService" class="by.itransition.dpm.service.AuthorizationService"/>
+
     <authentication-manager>
-		<authentication-provider>
-            <user-service>
-                <user name="admin" password="pass" authorities="ROLE_ADMIN,ROLE_USER" />
-                <user name="user1" password="1111" authorities="ROLE_USER" />
-                <user name="user2" password="2222" disabled="true" authorities="ROLE_USER" />
-            </user-service>
-		</authentication-provider>
-	</authentication-manager>
+        <authentication-provider user-service-ref="authorizationService">
+        </authentication-provider>
+    </authentication-manager>
     
           
 </beans:beans>
