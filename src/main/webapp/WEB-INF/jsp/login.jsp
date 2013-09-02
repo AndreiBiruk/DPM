@@ -1,11 +1,28 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
-<h3>Login with Username and Password</h3><form name='f' action='/j_spring_security_check' method='POST'>
-    <table>
-        <tr><td>User:</td><td><input type='text' name='j_username' value=''></td></tr>
-        <tr><td>Password:</td><td><input type='password' name='j_password'/></td></tr>
-        <tr><td><input type='checkbox' name='_spring_security_remember_me'/></td><td>Remember me on this computer.</td></tr>
-        <tr><td colspan='2'><input name="submit" type="submit" value="Login"/></td></tr>
-    </table>
+<c:if test="${param.error == true}">
+    <div class = "alert alert-danger">
+        <spring:message code="message.loginerror"/>
+    </div>
+</c:if>
+
+
+<h3><spring:message code = "signin"/></h3>
+<form action='/j_spring_security_check' method='POST'>
+    <div class="form-group">
+        <label for="username"><spring:message code="message.username"/></label>
+        <input type="text" class="form-control" id="username" name = "j_username">
+    </div>
+    <div class="form-group">
+        <label for="username"><spring:message code="message.password"/></label>
+        <input type="password" class="form-control" id="password" name = "j_password">
+    </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" name="_spring_security_remember_me"><spring:message code="message.rememberme"/>
+        </label>
+    </div>
+    <button type="submit" class="btn btn-primary"><spring:message code="signin"/></button>
 </form>

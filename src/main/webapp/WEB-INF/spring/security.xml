@@ -9,13 +9,8 @@
   
     <beans:bean class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler"/>
 
-    <http pattern="/registration*" security="none"/>
-    <http pattern="/addUser*" security="none" />
-    <http pattern="/activate/**" security="none" />
-
     <http use-expressions="true" auto-config="true">
-        <form-login login-page="/login"/>
-        <intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')"/>
+        <form-login login-page="/login" authentication-failure-url="/login?error=true"/>
         <intercept-url pattern="/users" access="hasRole('ROLE_ADMIN')" />
         <remember-me key="cBg8A7E5Ak7eZLdF5e6y0xF8Kzevy2Xwh074hG8Ez7m"/>
     </http>
