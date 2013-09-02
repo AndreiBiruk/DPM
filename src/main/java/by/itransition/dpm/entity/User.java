@@ -31,7 +31,7 @@ public class User {
     @Column(name = "role")
     private Integer role;
 
-    @OneToMany
+    @OneToMany(fetch=FetchType.EAGER)
     List<Book> books;
 
     public List<Book> getBooks() {

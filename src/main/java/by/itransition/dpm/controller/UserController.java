@@ -32,7 +32,6 @@ public class UserController {
     @RequestMapping("/user/{username}")
     public String user(Model model, @PathVariable String username) {
         User user = userService.getUserByLogin(username);
-
         model.addAttribute("name", user.getUsername());
         model.addAttribute("books", bookService.getUserBooks(user));
         return "user";
