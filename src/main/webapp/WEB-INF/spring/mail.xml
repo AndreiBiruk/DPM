@@ -5,20 +5,29 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-	    <property name="host" value="smtp.gmail.com" />
-	    <property name="port" value="587" />
-	    <property name="username" value="dpmprojectregistrator@gmail.com" />
-	    <property name="password" value="58l3JHzoPrs42HqiOEsa" />
-	    
-	    <property name="javaMailProperties">
-	        <props>
+    <!-- Mail sender bean -->
+    <bean id="mailSender"
+          class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="smtp.mail.ru" />
+        <property name="username" value="dpm-project@mail.ru" />
+        <property name="password" value="58l3JHzoPrs42HqiOEsa" />
+        <property name="port" value="25"/>
+        <property name="javaMailProperties">
+            <props>
                 <prop key="mail.smtp.auth">true</prop>
-                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.smtp.starttls.enable">false</prop>
             </props>
         </property>
     </bean>
-     
-    <bean id="mailMessage" class="org.springframework.mail.SimpleMailMessage" />
+
+    <!-- Simple mail template -->
+    <bean id="mailMessage" class="org.springframework.mail.SimpleMailMessage"/>
+
+    <!-- Your service with sender and template injected -->
+    <bean id="userRegistration" class="by.itransition.dpm.service.UserRegistration">
+        <property name="mailSender">
+            <ref bean="mailSender" />
+        </property>
+    </bean>
      
 </beans>

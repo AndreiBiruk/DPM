@@ -56,23 +56,16 @@ public class RegistrationController {
     public String registration(@ModelAttribute("user")User user, String confirmPassword, Model model, HttpServletRequest request){
         model.addAttribute("path", request.getRequestURI());
 
-        userDao.addUser(user);
-        //validator.setUser(user);
-        //validator.setConfirmPassword(confirmPassword);
+        validator.setUser(user);
+        validator.setConfirmPassword(confirmPassword);
 
-        //List<String> errorList = validator.getErrorList();
+        List<String> errorList = validator.getErrorList();
 
-        //if (errorList.isEmpty()){
-
-        //    by.itransition.dpm.dao.UserDao dao = new UserDaoImpl();
-        //    user.setIdUser(10);
-        //    dao.addUser(user);
-
-        //    registration.setUser(user);
-        //    registration.registrate();
-        //}
-        return parseErrors(java.util.Collections.<String>emptyList());
-        //return parseErrors(errorList);
+        if (errorList.isEmpty()){
+            registration.setUser(user);
+            registration.registrate();
+        }
+        return parseErrors(errorList);
     }
 
     private String parseErrors(List<String> errorList){
@@ -95,5 +88,4 @@ public class RegistrationController {
         }
         return "regidrect:/login";
     }
-
 }

@@ -58,9 +58,9 @@ public class UserRegistration {
     }
 
     public void sendMessage(String link) {
-        message.setFrom("MusicUploader");
+        message.setFrom("dpm-project@mail.ru");
         message.setTo(user.getEmail());
-        message.setSubject("Activation on MusicUploader");
+        message.setSubject("Activation on DPM");
         message.setText(Main.ACTIVATION_MESSAGE_1 + user.getUsername() + Main.ACTIVATION_MESSAGE_2 + user.getPassword() + Main.ACTIVATION_MESSAGE_3 + link + Main.ACTIVATION_MESSAGE_4);
         mailSender.send(message);
     }
@@ -81,7 +81,7 @@ public class UserRegistration {
 
     private String generateLink(){
         StringBuffer link = new StringBuffer(Main.DOMAIN_NAME);
-        link.append("/mup/activate/");
+        link.append("/activate/");
         link.append(Activation.generateActivationCode(user));
         return new String(link);
     }
