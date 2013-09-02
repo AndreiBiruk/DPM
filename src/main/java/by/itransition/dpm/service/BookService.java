@@ -10,6 +10,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class BookService {
 
@@ -38,5 +40,10 @@ public class BookService {
         book.setUser(user);
         bookDao.saveBook(book);
         userService.addBook(user, book);
+    }
+
+    @Transactional
+    public List<Book> getUserBooks(User user) {
+        return user.getBooks();
     }
 }
