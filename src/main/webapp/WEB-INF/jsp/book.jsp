@@ -15,12 +15,12 @@
             </c:if>
         </tr>
 
-        <c:forEach items="${books}" var="book">
+        <c:forEach items="${chapters}" var="chapter">
             <tr>
                 <td>
-                    <a href = "<c:url value="/book/${book.bookId}"/>">${book.name}</a>
+                    <a href = "<c:url value="/book/${book.bookId}"/>">${chapter.name}</a>
                 </td>
-                <td>${book.description}</td>
+                <td>${chapter.description}</td>
                 <c:if test="${name == currentUser}">
                     <td><a href="<c:url value="/book/delete/${book.bookId}"/>"><spring:message code="delete"/></a></td>
                 </c:if>
