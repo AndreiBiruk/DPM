@@ -62,6 +62,11 @@ public class AdminController {
         return "users";
     }
 
+    @RequestMapping("denied")
+    public String accessDenied(){
+        return "denied";
+    }
+
 	private void addPageInfo(Model model, Integer size, Integer page){
 		model.addAttribute("pages",(size+USERS_ON_PAGE-1) / USERS_ON_PAGE);	
 		model.addAttribute("page", page);
